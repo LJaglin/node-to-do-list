@@ -7,6 +7,9 @@ const port = 3000;
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 //using imported routes
 app.use(itemsRoute);
 

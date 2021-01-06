@@ -1,4 +1,4 @@
-exports.satHello = (req, res, next) => {
-  console.log('hello from controller');
-  res.redirect('/');
+exports.sayHello = (req, res, next) => {
+  console.log('start');
+  res.render('navigation.ejs');
 };

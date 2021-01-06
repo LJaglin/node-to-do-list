@@ -6,6 +6,6 @@ const router = express.Router();
 //controller
 const getItems = require('../controllers/items');
 
-router.get('/test', getItems.satHello);
+router.get('/start', getItems.sayHello);
 
 module.exports = router;
