@@ -10,3 +10,18 @@ exports.getItems = (req, res, next) => {
     });
   });
 };
+
+exports.getAddItem = (req, res, next) => {
+  res.render('todo/add-item', {
+    pageTitle: 'Add New Item',
+    path: '/todo/add-item'
+  });
+};
+
+exports.addNewItem = (req, res, next) => {
+  const description = req.body.itemDesc;
+  console.log(description);
+  const item = new Item(description);
+  item.save();
+  res.redirect('/');
+};
