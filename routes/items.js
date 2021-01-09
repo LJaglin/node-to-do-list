@@ -4,8 +4,8 @@ const express = require('express');
 const router = express.Router();
 
 //controller
-const getItems = require('../controllers/items');
+const items = require('../controllers/items');
 
-router.get('/start', getItems.sayHello);
+router.get('/todo/items', items.getItems);
 
 module.exports = router;
