@@ -1,36 +1,36 @@
 <%- include('../includes/head.ejs') %>
 </head>
-<body>
-  <%- include('../includes/navigation.ejs') %>
+  <body>
+    <%- include('../includes/navigation.ejs') %>
 
-  <main>
+    <main>
 
-    <div class="container">
+      <div class="container">
 
-      <% if(items.length > 0) { %>
+        <% if(items.length > 0) { %>
 
-        <ul class="collection">
+          <ul class="collection">
 
-          <% for (let item of items) { %>
-            <li class="collection-item">
-              <%= item.description %>
-            </li>  
-          <% } %>
-<!-- 
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item active">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a> -->
-        </ul>  
+            <% for (let item of items) { %>
+              <li class="collection-item">
+                <%= item.description %>
+              </li>  
+            <% } %>
+  <!-- 
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item active">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a> -->
+          </ul>  
 
-      <% } else { %>
+        <% } else { %>
 
-        <h1>No Items found!</h1>
+          <h1>No Items found!</h1>
 
-      <% } %>  
+        <% } %>  
 
-    </div>
+      </div>
 
-  </main>
+    </main>
 
 <%- include('../includes/end.ejs') %>
