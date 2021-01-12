@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 //routes
-const itemsRoute = require('./routes/items');
+const tasksRoute = require('./routes/tasks');
 
 const port = 3000;
 
@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 //using imported routes
-app.use(itemsRoute);
+app.use(tasksRoute);
 
 // start server
 app.listen(port, () => {
