@@ -12,7 +12,7 @@ exports.getTasks = (req, res, next) => {
 };
 
 exports.getAddTask = (req, res, next) => {
-  res.render('todo/add-task', {
+  res.render('todo/edit-task', {
     pageTitle: 'Add New Task',
     path: '/todo/add-task'
   });
@@ -24,4 +24,35 @@ exports.addNewTask = (req, res, next) => {
   const task = new Task(description);
   task.save();
   res.redirect('/');
+};
+
+exports.getEditTask = (req, res, next) => {
+  const editMode = req.query.edit;
+  console.log(`editMode= ${editMode}`);
+  if (!editMode) {
+    return res.redirect('/todo/tasks');
+  }
+  const taskId = req.params.taskId;
+  console.log(`taskid= ${taskId}`);
+  Task.findTaskById(taskId, task => {
+    if (!task) {
+      return res.redirect('/todo/tasks');
+    }
+    console.log(task);
+    res.render('todo/edit-task', {
+      pageTitle: 'Edit Task',
+      path: '/todo/edit-task',
+      editing: editMode,
+      task: task
+    });
+  });
+};
+
+exports.postEditTask = (req, res, next) => {
+  const taskId = req.body.taskId;
+  const updatedDescription = req.body.taskDesc;
+
+  const updatedTask = new Task(taskId, updatedDescription);
+  updatedTask.save();
+  res.redirect('/todo/tasks');
 };

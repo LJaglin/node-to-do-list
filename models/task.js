@@ -16,22 +16,42 @@ const getTasksFromFile = callback => {
 };
 
 module.exports = class Task {
-  constructor(description) {
+  constructor(id, description) {
+    this.id = id;
     this.description = description;
   }
 
   // save task
   save() {
-    this.id = Math.random().toString();
+    console.log(`Task.save()`);
     getTasksFromFile(tasks => {
-      tasks.push(this);
-      fs.writeFile(p, JSON.stringify(tasks), err => {
-        console.log(err);
-      });
-    })
+      if (this.id) {
+        const existingTaskIdx = tasks.findIndex(task => task.id === this.id);
+        const updatedTasks = [...tasks];
+        updatedTasks[existingTaskIdx] = this;
+        console.log(updatedTasks[existingTaskIdx]);
+        fs.writeFile(p, JSON.stringify(updatedTasks), err => {
+          console.log(err);
+        });
+      } else {
+        this.id = (Math.random() * Math.random()).toString();
+        tasks.push(this);
+        fs.writeFile(p, JSON.stringify(tasks), err => {
+          console.log(err);
+        });
+      }
+    });
   }
 
   static fetchAllTasks(callback) {
     getTasksFromFile(callback);
   }
+
+  static findTaskById(id, callback) {
+    getTasksFromFile(tasks => {
+      const task = tasks.find(task => task.id === id);
+      callback(task);
+    });
+  }
+
 };

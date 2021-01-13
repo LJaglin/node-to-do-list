@@ -4,12 +4,16 @@ const express = require('express');
 const router = express.Router();
 
 //controller
-const tasks = require('../controllers/tasks');
+const tasksController = require('../controllers/tasks');
 
-router.get('/todo/tasks', tasks.getTasks);
+router.get('/todo/tasks', tasksController.getTasks);
 
-router.get('/todo/add-task', tasks.getAddTask);
+router.get('/todo/add-task', tasksController.getAddTask);
 
-router.post('/todo/add-task', tasks.addNewTask);
+router.post('/todo/add-task', tasksController.addNewTask);
+
+router.get('/todo/edit-task/:taskId', tasksController.getEditTask);
+
+router.post('/todo/edit-task', tasksController.postEditTask);
 
 module.exports = router; 

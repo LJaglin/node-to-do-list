@@ -5,7 +5,7 @@
 
     <main>
 
-      <div class="container">
+      <div class="container" style="margin-top: 3rem;">
 
         <% if(tasks.length > 0) { %>
 
@@ -18,7 +18,7 @@
                     <%= task.description %>
                   </div>
                   <div class="col s1">
-                    <a class="waves-effect waves-light btn-small">Edit</a>
+                    <a href="/todo/edit-task/<%= task.id %>?edit=true" class="waves-effect waves-light btn-small">Edit</a>
                   </div>
                   <div class="col s1">
                     <a class="waves-effect waves-light btn-small">Delete</a>
