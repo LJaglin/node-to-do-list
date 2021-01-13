@@ -56,3 +56,9 @@ exports.postEditTask = (req, res, next) => {
   updatedTask.save();
   res.redirect('/todo/tasks');
 };
+
+exports.postDeleteTask = (req, res, next) => {
+  const taskId = req.body.taskId;
+  Task.deleteTaskById(taskId);
+  res.redirect('/todo/tasks');
+};

@@ -16,4 +16,6 @@ router.get('/todo/edit-task/:taskId', tasksController.getEditTask);
 
 router.post('/todo/edit-task', tasksController.postEditTask);
 
+router.post('/todo/delete-task', tasksController.postDeleteTask);
+
 module.exports = router; 

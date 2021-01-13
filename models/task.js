@@ -54,4 +54,13 @@ module.exports = class Task {
     });
   }
 
+  static deleteTaskById(id) {
+    getTasksFromFile(tasks => {
+      const updatedTasks = tasks.filter(task => task.id !== id);
+      fs.writeFile(p, JSON.stringify(updatedTasks), err => {
+        console.log(err);
+      });
+    });
+  }
+
 };
