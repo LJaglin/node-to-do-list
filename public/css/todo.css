@@ -1,0 +1,7 @@
+.text-center {
+  text-align: center;
+}
+
+.collection-item:hover {
+  background-color: #26a69a;
+}
