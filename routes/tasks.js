@@ -10,7 +10,7 @@ router.get('/todo/tasks', tasksController.getTasks);
 
 router.get('/todo/add-task', tasksController.getAddTask);
 
-router.post('/todo/add-task', tasksController.addNewTask);
+router.post('/todo/add-task', tasksController.postAddTask);
 
 router.get('/todo/edit-task/:taskId', tasksController.getEditTask);
 

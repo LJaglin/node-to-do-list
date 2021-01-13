@@ -14,16 +14,16 @@ exports.getTasks = (req, res, next) => {
 exports.getAddTask = (req, res, next) => {
   res.render('todo/edit-task', {
     pageTitle: 'Add New Task',
-    path: '/todo/add-task'
+    path: '/todo/add-task',
+    editing: false
   });
 };
 
-exports.addNewTask = (req, res, next) => {
+exports.postAddTask = (req, res, next) => {
   const description = req.body.taskDesc;
-  console.log(description);
-  const task = new Task(description);
+  const task = new Task(null, description);
   task.save();
-  res.redirect('/');
+  res.redirect('/todo/tasks');
 };
 
 exports.getEditTask = (req, res, next) => {
